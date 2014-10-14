@@ -15,26 +15,14 @@
 // isValid('ABC_123') => false
 
 function isValid(password) {
-	if (password.length < 6) {
+	if (password.length < 6 ||
+	   doesntHaveNumber(password) || 
+		 doesntHaveCap(password) || 
+		 doesntHaveLow(password) || 
+		 doesntHaveUnderscore(password)) {
 		return false;
 	};
 
-	if (doesntHaveNumber(password)) {
-	 return false;
-	};
-
-	if (doesntHaveCap(password)){
-		return false;
-	};
-
-	if (doesntHaveLow(password)){
-		return false;
-	};
-
-	if (doesntHaveUnderscore(password)){
-		return false;
-	};
-	
 	return true;
 
 	function doesntHaveNumber(password) {
