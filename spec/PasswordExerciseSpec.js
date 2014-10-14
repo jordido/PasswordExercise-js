@@ -6,7 +6,7 @@
 // number
 // underscore
 
-// isValid('abc') => false
+// isValid('aB3_') => false
 // isValid('') => false
 // isValid('Ab_3fg') => true
 // isValid('abcdef') => false
@@ -20,6 +20,8 @@ function isValid(password) {
 		return false;
 	} else if (password.indexOf("_") == -1) {
 		return false; 
+	}	else if (password.search(/[1-9]/) == -1) {
+		return false;
 	}	else {
 			return true;
 	}
@@ -32,7 +34,7 @@ describe("Password checking", function() {
 	});
 
 	it("it is 6 chars long", function() {
-		expect(isValid("abc")).toBeFalsy();
+		expect(isValid("aB_3")).toBeFalsy();
 	});
 
 	it("must have an underscore", function() {
@@ -41,5 +43,9 @@ describe("Password checking", function() {
 
 	it("must have a number", function() {
 		expect(isValid("ABC_ef")).toBeFalsy();
+	});
+
+	it("must have a lowercase letter", function() {
+
 	});
 });
