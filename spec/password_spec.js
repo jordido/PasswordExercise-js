@@ -23,7 +23,7 @@ function isValid(password) {
 	 return false;
 	};
 
-	if (password.search(/[A-Z]/) == -1){
+	if (doesntHaveCap(password)){
 		return false;
 	};
 
@@ -38,6 +38,10 @@ function isValid(password) {
 
 	function doesntHaveNumber(password) {
 		return (password.search(/[0-9]/) == -1);
+	}
+
+	function doesntHaveCap(password){
+		return password.search(/[A-Z]/) == -1;
 	}
 }
 
