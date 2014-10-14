@@ -27,13 +27,14 @@ function isValid(password) {
 		return false;
 	};
 
-	if (password.search(/[a-z]/) == -1){
+	if (doesntHaveLow(password)){
 		return false;
 	};
 
-	if (password.search(/_/) == -1){
+	if (doesntHaveUnderscore(password)){
 		return false;
 	};
+	
 	return true;
 
 	function doesntHaveNumber(password) {
@@ -43,7 +44,16 @@ function isValid(password) {
 	function doesntHaveCap(password){
 		return password.search(/[A-Z]/) == -1;
 	}
+
+	function doesntHaveLow(password) {
+		return password.search(/[a-z]/) == -1;
+	}
+
+	function doesntHaveUnderscore(password) {
+		return password.search(/_/) == -1;
+	}
 }
+
 
 describe("Password checking", function() {
 	it("should return true for a valid password", function() {
