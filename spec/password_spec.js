@@ -17,16 +17,27 @@
 function isValid(password) {
 	if (password.length < 6) {
 		return false;
-	} else if (password.search(/[0-9]/) == -1){
+	};
+
+	if (doesntHaveNumber(password)) {
+	 return false;
+	};
+
+	if (password.search(/[A-Z]/) == -1){
 		return false;
-	} else if (password.search(/[A-Z]/) == -1){
+	};
+
+	if (password.search(/[a-z]/) == -1){
 		return false;
-	} else if (password.search(/[a-z]/) == -1){
+	};
+
+	if (password.search(/_/) == -1){
 		return false;
-	} else if (password.search(/_/) == -1){
-		return false;
-	} else {
-		return true;
+	};
+	return true;
+
+	function doesntHaveNumber(password) {
+		return (password.search(/[0-9]/) == -1);
 	}
 }
 
