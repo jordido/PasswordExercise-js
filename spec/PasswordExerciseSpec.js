@@ -16,10 +16,12 @@
 // isValid('ABC_123') => false
 
 function isValid(password) {
-	if (password.length == 6) {
-		return true;
-	} else {
+	if (password.length != 6) {
 		return false;
+	} else if (password.indexOf("_") == -1) {
+		return false; 
+	}	else {
+			return true;
 	}
 }
 
@@ -37,4 +39,7 @@ describe("Password checking", function() {
 		expect(isValid("ABcd12")).toBeFalsy();
 	});
 
+	it("must have a number", function() {
+		expect(isValid("ABC_ef")).toBeFalsy();
+	});
 });
